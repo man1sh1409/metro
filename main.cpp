@@ -121,12 +121,44 @@ int main(){
 	g.addEdge("Punjabi Bagh West~P", "Netaji Subhash Place~PR", 3);
 	while(1){
 		int choice;
-		cout<<"1. for "
-		cout<<"enter choice\n";
+		cout<<"1.To display map \n";
+		cout<<"2.To display station\n";
+		cout<<"3. To your their is path between two station\n";
+		cout<<"4.To your shortest distance between two station\n";
+		cout<<"-1. To exit\n";
+		cout<<"enter your choice \n";
+		cin>> choice ;
+		if(choice==-1) break;
+		switch(choice){
+			case 1: g.display_map();
+				break;
+				
+			case 2 :g.display_stations();
+				break;
+				
+			case 3 :string source,destination;
+				g.display_stations();
+				cout<<"please enter stations name from given stations as it is\n";
+				cin>>source>>destination>;
+				if(g.hasPath(source,destination))
+					cout<<"path exist \t\t\t\n";
+				else
+					cout<<"sorry! No path exist\n";
+				break;
+				
+			case 4 : string source,destination;
+				g.display_stations();
+				cout<<"please enter stations name from given stations as it is\n";
+				cin>>source>>destination>;
+				int dist=get_minimum_dist(source,destination);
+				if(dist==1e9)cout<<"No path between two stations\n. please enter correct station\n";
+				else cout<<"minimum distance is :\t "<<dist<<endl;
+				break;
+				
+			default :cout<<"invalid choice \n.please provide valid input \n";
+				 break;
+		}
+		
 	}
-	//g.display_map();
-	//g.display_stations();
-	bool check=g.hasPath("Punjabi Bagh West~P","Rajouri Garden~BP");
-	if(check)cout<<"path exist\n";
-	else cout<<"no path exist\n";
+	
 }
